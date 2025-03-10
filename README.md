@@ -5,7 +5,7 @@
 In an era where security cameras are everywhere but meaningful surveillance is scarce, we saw an opportunity to transform passive recording systems into intelligent security guardians. Our inspiration came from real-world incidents where crucial moments were missed despite having camera coverage, and the overwhelming challenge security personnel face in monitoring multiple video feeds simultaneously. We wanted to create a solution that doesn't just record but understands, analyzes, and acts, whether it's for local businesses like grocery markets to bigger organizations like hospitals and shopping malls.
 
 ## What it does
-HawkWatch is an intelligent video surveillance platform that detects crime, suspicious activities and life threatening events such as fainting and choking and sends phone alerts to alert security of the issue. Our intelligent model generates time-stamped incident reports with video evidence. It has 3 main features:
+Trinetra-AI is an intelligent video surveillance platform that detects crime, suspicious activities and life threatening events such as fainting and choking and sends phone alerts to alert security of the issue. Our intelligent model generates time-stamped incident reports with video evidence. It has 3 main features:
 1. Real-time analysis of video streams using Google's Gemini Visual Language Model
 2. An upload feature that uploads an existing mp4 file for crime analysis
 3. A library of saved livestream footage and mp4 uploads, with detailed security analysis complete with timeline and information which is saved with each entry
@@ -46,7 +46,7 @@ Our tech stack combines modern tools for a robust, scalable solution:
 * Integration of multiple third-party services
 * The importance of user experience in security applications
 
-## What's next for HawkWatch
+## What's next for Trinetra-AI
 Future enhancements we're planning:
 
 ### 1. Advanced AI Features
