@@ -1,4 +1,4 @@
-# HawkWatch - AI-Powered Security Surveillance
+# Trinetra-AI - AI-Powered Security Surveillance
 
 ![Gif 1](public/gifs/landing.gif)
 ![Gif 2](public/gifs/gallary.gif)
