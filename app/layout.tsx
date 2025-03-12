@@ -7,7 +7,6 @@ import { ThemeProvider } from "next-themes";
 import Link from "next/link";
 import HomeLink from "@/components/home-link";
 import { HeaderNav } from "@/components/header-nav";
-import { GeminiFooter } from "@/components/gemini-footer";
 import "./globals.css";
 import "nprogress/nprogress.css";
 import { NavigationEvents } from "@/components/navigation-events";
@@ -66,9 +65,7 @@ export default function RootLayout({
 							<div className="w-full">
 								{children}
 							</div>
-							<footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center">
-								<GeminiFooter />
-							</footer>
+							
 						</div>
 					</main>
 				</ThemeProvider>

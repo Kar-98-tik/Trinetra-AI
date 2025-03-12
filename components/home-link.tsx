@@ -1,3 +1,4 @@
+
 'use client'
 
 import { createClient } from '@/utils/supabase/client'
@@ -17,12 +18,12 @@ export default function HomeLink() {
 
   return (
     <Link 
-      href="/" 
+      href="/Trinetra-AI.png" 
       onClick={handleClick}
       className="flex items-center"
     >
       <Image
-        src="/HawkWatchLogo.png"
+        src="/Trinetra-AI.png"
         alt="HawkWatch Logo"
         width={120}
         height={40}

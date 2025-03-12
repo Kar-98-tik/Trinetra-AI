@@ -123,7 +123,7 @@ export default function UploadPage() {
       }
 
       console.log('Video duration:', duration)
-      const interval = 3 // Analyze one frame every 3 seconds
+      const interval = 1 // Analyze one frame every 3 seconds
       const totalFrames = Math.floor(duration / interval)
       const newTimestamps: Timestamp[] = []
 
