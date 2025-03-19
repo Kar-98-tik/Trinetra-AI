@@ -5,7 +5,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from "dotenv";
 dotenv.config({ path: ".env.local" });
 
-const API_KEY = process.env.GOOGLE_API_KEY;
+const API_KEY = "AIzaSyDtWB0BpZJibEA-cgl7K9M-xY9Ht3eeXY";
 if (!API_KEY) {
     throw new Error("GOOGLE_API_KEY environment variable is not set");
 }
@@ -89,7 +89,7 @@ Return a JSON object in this exact format:
                 imagePart,
             ]);
 
-            const response = await result.response;
+            const response = result.response;
             const text = response.text();
             console.log('Raw API Response:', text);
 

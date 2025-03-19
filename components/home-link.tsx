@@ -18,18 +18,22 @@ export default function HomeLink() {
 
   return (
     <Link 
-      href="/Trinetra-AI.png" 
+      href="/" 
       onClick={handleClick}
       className="flex items-center"
     >
       <Image
-        src="/Trinetra-AI.png"
-        alt="HawkWatch Logo"
+        src="/trinetra.png"
+        alt="Trinetra AI Logo"
         width={120}
         height={40}
-        className="object-contain"
+        className="pt-3.5 object-contain transition-transform transform hover:scale-110 drop-shadow-[0_0_10px_rgba(0,162,255,0.8)]"
+
+        width={140}
+        height={40}
         priority
       />
     </Link>
   )
 }
+

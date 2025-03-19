@@ -21,9 +21,9 @@ Trinetra-AI is an intelligent video surveillance platform that detects crime, su
 Our tech stack combines modern tools for a robust, scalable solution:
 * **Frontend**: The UI is built with Next.js 13+ and TypeScript, paired with Tailwind CSS for a sleek, responsive design. This ensures a seamless experience for users across different devices.
 * **Backend**: We use Supabase for secure user authentication and database management, allowing for easy access control and efficient data handling.
-* **AI Processing**: HawkWatch uses Google's Gemini Visual Language Model (VLM) for real-time video analysis and TensorFlow.js for processing video streams on the client side. These models enable accurate event detection, ranging from criminal activity to health-related emergencies.
+* **AI Processing**: Trinetra-AI uses Google's Gemini Visual Language Model (VLM) for real-time video analysis and TensorFlow.js for processing video streams on the client side. These models enable accurate event detection, ranging from criminal activity to health-related emergencies.
 * **Email/Phone Service**: Resend API powers our email and phone notification system, ensuring that alerts are sent in real-time with minimal delays.
-* **Real-time Updates**: We leverage the Canvas API for live updates, ensuring that HawkWatch’s real-time analysis is fast and accurate, even as it processes multiple video streams.
+* **Real-time Updates**: We leverage the Canvas API for live updates, ensuring that Trinetra-AI’s real-time analysis is fast and accurate, even as it processes multiple video streams.
 * **Contextual Assistance**: OpenAI’s language models are integrated to power our assistant bot, which helps security teams with situational guidance. The bot uses context from the most recent events to offer real-time advice, improving the decision-making process during critical moments.
 
 ## Challenges we ran into
@@ -64,4 +64,4 @@ Future enhancements we're planning:
 * Automated response actions
 * Voice assistant compatibility
 
-Our vision is to make HawkWatch the go-to platform for intelligent video surveillance, making security monitoring more efficient and effective for everyone.
+Our vision is to make Trinetra-AI the go-to platform for intelligent video surveillance, making security monitoring more efficient and effective for everyone.

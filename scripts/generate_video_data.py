@@ -19,7 +19,7 @@ def load_env():
 
 # Load environment variables and configure Gemini
 load_env()
-genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
+genai.configure(api_key="AIzaSyDtWB0BpZJibEA-cgl7K9M-xY9Ht3eeXY")
 
 def upload_to_gemini(path, mime_type=None):
     """Uploads the given file to Gemini."""

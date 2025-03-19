@@ -27,7 +27,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
 	metadataBase: new URL(defaultUrl),
-	title: "Hawkwatch",
+	title: "Trinetra-AI",
 	description: "Real-time workplace safety monitoring and analysis",
 };
 
