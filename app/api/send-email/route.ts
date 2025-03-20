@@ -1,6 +1,6 @@
 import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
-// import { createClient } from '@/utils/supabase/server' 
+import { createClient } from '@/utils/supabase/server' 
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -12,13 +12,18 @@ export async function POST(request: Request) {
       console.error('RESEND_API_KEY is not set in environment variables')
       return NextResponse.json({ error: 'Email service not configured' }, { status: 500 })
     }
+    const { title, description, recipientEmail } = await request.json()
+    
+    if (!title || !description) {
+      return NextResponse.json({ error: 'Title and description are required' }, { status: 400 })
+    }
 
-    const { title, description } = await request.json()
+   
     console.log('Sending email to: graceshao203@gmail.com')
 
     const { data, error } = await resend.emails.send({
-      from: 'HawkWatch <onboarding@resend.dev>',
-      to: ['kartikprayagi@gmail.com'], // Hardcoded email address
+      from: 'Trinetra-AI <onboarding@resend.dev>',
+      to: [ recipientEmail || 'mandarwanjari@gmail.com'], // Hardcoded email address
       subject: `[ALERT] ${title}`,
       html: `
         <h2>${title}</h2>

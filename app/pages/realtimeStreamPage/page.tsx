@@ -116,7 +116,7 @@ export default function Page() {
       setInitializationProgress('Initializing models...')
       const [faceModel, poseModel] = await Promise.all([
         blazefaceModel.load({
-          maxFaces: 1, // Limit to 1 face for better performance
+          maxFaces: 2, // Limit to 1 face for better performance
           scoreThreshold: 0.5 // Increase threshold for better performance
         }),
         poseDetection.createDetector(
@@ -587,7 +587,7 @@ export default function Page() {
       clearInterval(analysisIntervalRef.current)
     }
     analyzeFrame() // first immediate call
-    analysisIntervalRef.current = setInterval(analyzeFrame, 3000)
+    analysisIntervalRef.current = setInterval(analyzeFrame, 2000)
   }
 
   const stopRecording = () => {
