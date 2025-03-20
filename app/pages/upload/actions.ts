@@ -2,12 +2,9 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-import dotenv from "dotenv";
-dotenv.config({ path: ".env.local" });
-
-const API_KEY = "AIzaSyDtWB0BpZJibEA-cgl7K9M-xY9Ht3eeXY";
+const API_KEY = process.env.GOOGLE_API_KEY;
 if (!API_KEY) {
-    throw new Error("GOOGLE_API_KEY environment variable is not set");
+    throw new Error('GOOGLE_API_KEY environment variable is not set');
 }
 const genAI = new GoogleGenerativeAI(API_KEY);
 

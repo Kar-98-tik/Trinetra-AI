@@ -6,7 +6,7 @@ from pathlib import Path
 
 def load_env():
     """Load environment variables from .env.local"""
-    env_path = Path(__file__).parent.parent/ '.env.local'
+    env_path = Path(__file__).parent.parent / '.env.local'
     if not env_path.exists():
         raise FileNotFoundError(f"Environment file not found: {env_path}")
         
@@ -19,7 +19,7 @@ def load_env():
 
 # Load environment variables and configure Gemini
 load_env()
-genai.configure(api_key="AIzaSyDtWB0BpZJibEA-cgl7K9M-xY9Ht3eeXY")
+genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
 def upload_to_gemini(path, mime_type=None):
     """Uploads the given file to Gemini."""

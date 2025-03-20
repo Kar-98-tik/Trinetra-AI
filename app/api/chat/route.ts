@@ -1,22 +1,22 @@
 import { NextResponse } from 'next/server'
-import OpenAI from 'openai'
+import { GoogleGenerativeAI } from '@google/generative-ai'
 
-const getOpenAIClient = () => {
-  const apiKey = process.env.OPENAI_API_KEY
+const getGeminiClient = () => {
+  const apiKey = process.env.GOOGLE_API_KEY
   if (!apiKey) {
-    throw new Error('OpenAI API key not found in environment variables')
+    throw new Error('Gemini API key not found in environment variables')
   }
-  return new OpenAI({ apiKey })
+  return new GoogleGenerativeAI(apiKey)
 }
 
 export async function POST(request: Request) {
-  let openai
+  let gemini
   try {
-    openai = getOpenAIClient()
+    gemini = getGeminiClient()
   } catch (error) {
-    console.error('OpenAI client initialization error:', error)
+    console.error('Gemini client initialization error:', error)
     return NextResponse.json(
-      { error: 'OpenAI API key not properly configured' },
+      { error: 'Gemini API key not properly configured' },
       { status: 500 }
     )
   }
@@ -29,31 +29,30 @@ export async function POST(request: Request) {
         ).join('\n')}\n\nPlease help the user with any questions about these events or provide general assistance.`
       : 'No events have been detected yet. I can still help you with any questions about the video stream or general assistance.'
 
-    console.log('Sending request to OpenAI...')
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [
+    console.log('Sending request to Gemini...')
+    
+    const model = gemini.getGenerativeModel({ model: 'gemini-1.5-pro' })
+    const response = await model.generateContent({
+      contents: [
         {
-          role: "system",
-          content: "You are a helpful assistant monitoring a real-time video stream. You have access to detected events and can provide guidance, especially during dangerous situations. Be concise but informative, and show appropriate concern for dangerous events while remaining calm and helpful."
+          role: 'user',
+          parts: [{
+            text: `You are a helpful assistant monitoring a real-time video stream. You have access to detected events and can provide guidance, especially during dangerous situations. Be concise but informative, and show appropriate concern for dangerous events while remaining calm and helpful.\n\n${contextMessage}`
+          }]
         },
-        {
-          role: "system",
-          content: contextMessage
-        },
-        ...messages
-      ],
-      temperature: 0.7,
-      max_tokens: 150 // Keep responses concise
+        ...messages.map((msg: any) => ({ role: 'user', parts: [{ text: msg.content }] }))
+      ]
     })
 
-    if (!response.choices?.[0]?.message?.content) {
-      throw new Error('Invalid response from OpenAI')
+    const textResponse = response.response.text()
+    
+    if (!textResponse) {
+      throw new Error('Invalid response from Gemini')
     }
 
-    console.log('Successfully received response from OpenAI')
+    console.log('Successfully received response from Gemini')
     return NextResponse.json({ 
-      content: response.choices[0].message.content,
+      content: textResponse,
       role: 'assistant'
     })
   } catch (error: any) {
